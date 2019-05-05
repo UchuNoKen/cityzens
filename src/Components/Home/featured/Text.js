@@ -2,6 +2,8 @@ import React from "react";
 import { easePolyOut } from "d3-ease";
 import Animate from "react-move/Animate";
 
+import FeaturedPlayer from "../../../Resources/images/featured_player.png";
+
 const Text = props => {
   const animateNumber = () => (
     <Animate
@@ -65,8 +67,33 @@ const Text = props => {
     </Animate>
   );
 
+  const animatePlayer = () => (
+    <Animate
+      show={true}
+      start={{ opacity: 0 }}
+      enter={{
+        opacity: [1],
+        timing: { delay: 800, duration: 500, ease: easePolyOut }
+      }}
+    >
+      {({ opacity }) => {
+        return (
+          <div
+            className="featured_player"
+            style={{
+              opacity,
+              background: `url(${FeaturedPlayer})`,
+              transform: `translate(550px, 201px)`
+            }}
+          />
+        );
+      }}
+    </Animate>
+  );
+
   return (
     <div className="featured_text">
+      {animatePlayer()}
       {animateNumber()}
       {animateFirst()}
       {animateSecond()}
