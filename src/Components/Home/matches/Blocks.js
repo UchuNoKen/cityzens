@@ -3,6 +3,8 @@ import { fireDBMatches } from "../../../firebase";
 import { fireDBLooper, reverseArray } from "../../UI/misc";
 
 import MatchesBlock from "../../UI/matches_block";
+import Slide from "react-reveal/Slide";
+
 class Blocks extends Component {
   state = {
     matches: []
@@ -25,11 +27,13 @@ class Blocks extends Component {
   showMatches = matches =>
     matches
       ? matches.map(match => (
-          <div className="item">
-            <div className="wrapper">
-              <MatchesBlock match={match} />
+          <Slide bottom key={match.id}>
+            <div className="item">
+              <div className="wrapper">
+                <MatchesBlock match={match} />
+              </div>
             </div>
-          </div>
+          </Slide>
         ))
       : null;
 

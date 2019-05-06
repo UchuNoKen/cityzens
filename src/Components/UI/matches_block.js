@@ -13,8 +13,19 @@ const MatchesBlock = ({ match }) => {
               className="icon"
               style={{ background: `url(/images/images/team_icons/${match.localThmb}.png)` }}
             />
+            <div className="team_name">{match.local}</div>
           </div>
-          <div className="right">Right</div>
+          <div className="right">{match.final ? match.resultLocal : "-"}</div>
+        </div>
+        <div className="match_bottom">
+          <div className="left">
+            <div
+              className="icon"
+              style={{ background: `url(/images/images/team_icons/${match.awayThmb}.png)` }}
+            />
+            <div className="team_name">{match.away}</div>
+          </div>
+          <div className="right">{match.final ? match.resultAway : "-"}</div>
         </div>
       </div>
     </div>
